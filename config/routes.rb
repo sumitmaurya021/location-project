@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: proc { [ 200, {}, [ "Welcome to the Location API" ] ] }
   use_doorkeeper do
     skip_controllers :authorizations, :applications, :authorized_applications
   end
