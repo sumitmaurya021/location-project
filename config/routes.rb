@@ -10,6 +10,7 @@ Rails.application.routes.draw do
           post "login"
         end
       end
+      resources :locations
     end
   end
 end

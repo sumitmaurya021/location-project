@@ -1,0 +1,51 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location_name: MyString
+  category: MyString
+  sub_category: MyString
+  general_amenities: MyString
+  interior_ameneties: MyString
+  exterior_ameneties: MyString
+  utility_ameneties: MyString
+  max_people_allowed: 1
+  film_specific_ameneties: MyString
+  map_link: MyString
+  accessibilities: MyString
+  permission: MyString
+  staying_facility: false
+  property_type: MyString
+  address: MyString
+  country: MyString
+  state: MyString
+  city: MyString
+  pincode: 1
+  description: MyString
+  terms_and_conditions: MyString
+  remarks: MyString
+  user: one
+
+two:
+  location_name: MyString
+  category: MyString
+  sub_category: MyString
+  general_amenities: MyString
+  interior_ameneties: MyString
+  exterior_ameneties: MyString
+  utility_ameneties: MyString
+  max_people_allowed: 1
+  film_specific_ameneties: MyString
+  map_link: MyString
+  accessibilities: MyString
+  permission: MyString
+  staying_facility: false
+  property_type: MyString
+  address: MyString
+  country: MyString
+  state: MyString
+  city: MyString
+  pincode: 1
+  description: MyString
+  terms_and_conditions: MyString
+  remarks: MyString
+  user: two
