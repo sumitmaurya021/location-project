@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         end
       end
       resources :locations
+      resources :enquiries
     end
   end
 end
