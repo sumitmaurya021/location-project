@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_28_085330) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_28_101153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -57,15 +57,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_28_085330) do
     t.string "location_name"
     t.string "category"
     t.string "sub_category"
-    t.string "general_amenities"
-    t.string "interior_ameneties"
-    t.string "exterior_ameneties"
-    t.string "utility_ameneties"
     t.integer "max_people_allowed"
-    t.string "film_specific_ameneties"
     t.string "map_link"
-    t.string "accessibilities"
-    t.string "permission"
     t.boolean "staying_facility"
     t.string "property_type"
     t.string "address"
@@ -79,6 +72,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_28_085330) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "general_amenities", default: []
+    t.jsonb "interior_amenities", default: []
+    t.jsonb "exterior_amenities", default: []
+    t.jsonb "utility_amenities", default: []
+    t.jsonb "film_specific_amenities", default: []
+    t.jsonb "permissions", default: []
+    t.jsonb "accessibilities", default: []
+    t.jsonb "suitable_for", default: []
+    t.jsonb "public_facility", default: []
     t.index ["user_id"], name: "index_locations_on_user_id"
   end
 

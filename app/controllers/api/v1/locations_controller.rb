@@ -53,11 +53,13 @@ module Api
 
       def location_params
         params.require(:location).permit(
-          :location_name, :category, :sub_category, :general_amenities, :interior_ameneties,
-          :exterior_ameneties, :utility_ameneties, :max_people_allowed, :film_specific_ameneties,
-          :map_link, :accessibilities, :permission, :staying_facility, :property_type, :address,
-          :country, :state, :city, :pincode, :description, :terms_and_conditions, :remarks, :user_id,
-          :document, images: []
+          :location_name, :category, :sub_category, :max_people_allowed,
+          :map_link, :staying_facility, :property_type, :address, :country,
+          :state, :city, :pincode, :description, :terms_and_conditions, :remarks,
+          :user_id, :document, images: [],
+          general_amenities: [ :label, :value ], interior_amenities: [ :label, :value ], exterior_amenities: [ :label, :value ],
+          utility_amenities: [ :label, :value ], film_specific_amenities: [ :label, :value ], permissions: [ :label, :value ],
+          accessibilities: [ :label, :value ], suitable_for: [ :label, :value ], public_facility: [ :name, :nearby, :km ]
         )
       end
 
@@ -68,15 +70,17 @@ module Api
           location_name: location.location_name,
           category: location.category,
           sub_category: location.sub_category,
-          general_amenities: location.general_amenities,
-          interior_ameneties: location.interior_ameneties,
-          exterior_ameneties: location.exterior_ameneties,
-          utility_ameneties: location.utility_ameneties,
+          general_amenities: location.general_amenities || [],
+          interior_amenities: location.interior_amenities || [],
+          exterior_amenities: location.exterior_amenities || [],
+          utility_amenities: location.utility_amenities || [],
           max_people_allowed: location.max_people_allowed,
-          film_specific_ameneties: location.film_specific_ameneties,
+          film_specific_amenities: location.film_specific_amenities || [],
+          suitable_for: location.suitable_for || [],
+          public_facility: location.public_facility || [],
           map_link: location.map_link,
-          accessibilities: location.accessibilities,
-          permission: location.permission,
+          accessibilities: location.accessibilities || [],
+          permissions: location.permissions || [],
           staying_facility: location.staying_facility,
           property_type: location.property_type,
           address: location.address,
@@ -88,7 +92,7 @@ module Api
           terms_and_conditions: location.terms_and_conditions,
           remarks: location.remarks,
           user_id: location.user_id,
-          images: location.images.attached? ? location.images.map { |image| image.url } : nil,
+          images: location.images.attached? ? location.images.map { |image| image.url } : [],
           document: location.document.attached? ? location.document.url : nil,
           created_at: location.created_at,
           updated_at: location.updated_at
