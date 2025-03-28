@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :doorkeeper_authorize!
+  include ActiveStorage::SetCurrent
 
   private
 
