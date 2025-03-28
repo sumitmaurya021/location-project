@@ -2,10 +2,11 @@ module Api
   module V1
     class LocationsController < ApplicationController
       before_action :set_location, only: [ :show, :update, :destroy ]
+      skip_before_action :doorkeeper_authorize!, only: [ :index ]
 
       # GET /api/v1/locations
       def index
-        locations = Location.all
+        locations = Location.all.order(created_at: :desc)
         render json: { locations: locations.map { |loc| location_response(loc) }, message: "Locations fetched successfully" }, status: :ok
       end
 
